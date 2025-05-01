@@ -1,0 +1,22 @@
+{
+  "name": "grupoclaveseguros",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "@lucide/astro": "^0.503.0",
+    "astro": "^5.7.8",
+    "keen-slider": "^6.8.6",
+    "react": "^19.1.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2"
+  }
+}

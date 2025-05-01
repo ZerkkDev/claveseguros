@@ -1,0 +1,126 @@
+---
+// src/components/QuoteForm.astro
+---
+
+<section class="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8" id="quote-form">
+    <div class="bg-stone-200 shadow-md rounded-lg overflow-hidden">
+      <div class="px-10 py-4">
+        <h1 class="text-3xl font-bold text-black">¡Cotiza tu seguro ahora!</h1>
+      </div>
+      
+      <form class="p-10 space-y-6 max-w-2xl mx-auto" method="POST" action="/api/quote">
+        <!-- Campo Nombre Completo -->
+        <div class="flex gap-4">
+            <div class="w-1/3 pl-0 pt-4">
+                <label for="name" class="text-gray-700 font-medium">
+                    Nombre Completo <span class="text-red-500">*</span>
+                </label>
+            </div>
+            <div class="w-2/3 pl-0 pt-4">
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Escribe tu nombre"
+                  class="flex-1 border-0 border-b-2 border-vino-600 focus:outline-none focus:border-vino-700 w-full bg-stone-200"
+                />
+            </div>
+        </div>
+        <div class="flex gap-4">
+            <div class="w-1/3 pl-0 pt-4">
+                <label for="phone" class="text-gray-700 font-medium">
+                    Teléfono de contacto <span class="text-red-500">*</span>
+                </label>
+            </div>
+            <div class="w-2/3 pl-0 pt-4">
+                <input
+                  id="phone"
+                  type="text"
+                  placeholder="Escribe tu teléfono"
+                  class="flex-1 border-0 border-b-2 border-vino-600 focus:outline-none focus:border-vino-700 w-full bg-stone-200"
+                />
+            </div>
+        </div>
+        <div class="flex gap-4">
+            <div class="w-1/3 pl-0 pt-4">
+                <label for="email" class="text-gray-700 font-medium">
+                    Email <span class="text-red-500">*</span>
+                </label>
+            </div>
+            <div class="w-2/3 pl-0 pt-4">
+                <input
+                  id="email"
+                  type="text"
+                  placeholder="Escribe tu email"
+                  class="flex-1 border-0 border-b-2 border-vino-600 focus:outline-none focus:border-vino-700 w-full bg-stone-200"
+                />
+            </div>
+        </div>
+        <div class="flex gap-4">
+            <div class="w-1/3 pl-0 pt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">
+                    Seguro de Interés <span class="text-red-500">*</span>
+                </label>
+            </div>
+            <div class="w-1/3 pl-0 pt-4">
+                <div class="flex items-center mb-2">
+                    <input id="personas" name="insurance_type" type="checkbox" value="Personas" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                    <label for="personas" class="ml-3 block text-sm font-medium text-gray-700">Personas</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="vehiculos" name="insurance_type" type="checkbox" value="Vehículos" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                    <label for="vehiculos" class="ml-3 block text-sm font-medium text-gray-700">Vehículos</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="empresas" name="insurance_type" type="checkbox" value="Empresas" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                    <label for="empresas" class="ml-3 block text-sm font-medium text-gray-700">Empresas</label>
+                </div>
+            </div>
+            <div class="w-1/3 pl-0 pt-4">
+                <div class="flex items-center mb-2">
+                    <input id="mascotas" name="insurance_type" type="checkbox" value="Mascotas" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                    <label for="mascotas" class="ml-3 block text-sm font-medium text-gray-700">Masivos</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="otros" name="insurance_type" type="checkbox" value="Otros" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                    <label for="otros" class="ml-3 block text-sm font-medium text-gray-700">Otros</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Botón de envío -->
+        <div class="pt-4 text-right">
+          <button
+            type="submit"
+            class="w-30 flex justify-center py-3 px-4 border border-transparent rounded-3xl shadow-sm text-sm font-medium text-white bg-vino-600 hover:bg-vino-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
+          >
+            Solicitar Asesoría
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <script is:inline>
+    document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+      
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+      
+        try {
+            // Aquí puedes agregar la lógica para enviar el formulario
+            // Ejemplo con fetch:
+            // const response = await fetch('/api/quote', {
+            //   method: 'POST',
+            //   headers: { 'Content-Type': 'application/json' },
+            //   body: JSON.stringify(data)
+            // });
+        
+            alert('¡Gracias por tu solicitud! Nos contactaremos contigo pronto.');
+            e.target.reset();
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Ocurrió un error al enviar el formulario. Por favor intenta nuevamente.');
+        }
+    });
+  </script>

@@ -1,0 +1,61 @@
+---
+// src/components/Footer.astro
+---
+
+<footer class="bg-vino-600 text-white pt-12 pb-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <div class="md:col-span-2">
+            <div class="w-40 mb-3"> <!-- Ajusta el ancho según necesites -->
+                <a href="/">
+                  <img 
+                    src="/src/assets/logo-white.svg" 
+                    alt="GRUPO CLAVESECUROS" 
+                    class="w-full h-auto" 
+                  />
+                </a>
+              </div>
+          <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span class="text-white">info@claveseguros.com</span>
+          </div>
+        </div>
+  
+        {/* Columnas de enlaces */}
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Titulo</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-white hover:text-white transition-colors">Item</a></li>
+            <li><a href="#" class="text-white hover:text-white transition-colors">Item</a></li>
+            <li><a href="#" class="text-white hover:text-white transition-colors">Item</a></li>
+          </ul>
+        </div>
+  
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Nosotros</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-white hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="#quote-form" class="text-white hover:text-white transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+  
+      {/* Divider */}
+      <div class="border-t border-gray-800 my-6"></div>
+  
+      {/* Footer inferior */}
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <span class="text-white text-sm">© CCDEC.EC. Todos los derechos reservados.</span>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-white hover:text-white text-sm transition-colors">Políticas de Privacidad</a>
+          <a href="#" class="text-white hover:text-white text-sm transition-colors">Términos de uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>

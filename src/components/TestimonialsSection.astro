@@ -1,0 +1,206 @@
+---
+// src/components/TestimonialCarousel.astro
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Martina",
+    quote: "Excelente atención desde el primer momento. Me explicaron con mucha paciencia todas las opciones de seguros que tenían y me ayudaron a elegir el plan perfecto para mi familia. 100% recomendados por su profesionalismo y calidez humana.",
+    avatar: "https://randomuser.me/api/portraits/women/43.jpg",
+    bgColor: "bg-red-950",
+    fontColor: "text-white"
+  },
+  {
+    id: 2,
+    name: "Martina",
+    quote: "Contratar mi seguro fue súper rápido y sencillo. Me asesoraron por WhatsApp y en cuestión de minutos ya tenía mi cotización lista. Se nota que les importa ayudar de verdad, no solo vender. Muy agradecido.",
+    avatar: "https://randomuser.me/api/portraits/women/32.jpg",
+    bgColor: "bg-vino-600",
+    fontColor: "text-white"
+  },
+  {
+    id: 3,
+    name: "Lucia",
+    quote: "Lo que más valoro es la tranquilidad que me dan. Saber que tengo un seguro confiable y un equipo listo para ayudarme en cualquier momento me da mucha seguridad. Sin duda los volvería a elegir.",
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+    bgColor: "bg-red-200",
+    fontColor: "text-black"
+  },
+  {
+    id: 4,
+    name: "David Wilson",
+    quote: "Incredible results in a short timeframe. The team was responsive and delivered beyond our expectations.",
+    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
+    bgColor: "bg-red-950",
+    fontColor: "text-white"
+  },
+  {
+    id: 5,
+    name: "Lisa Thompson",
+    quote: "Collaborating with them was seamless. They really understand user-centered design principles.",
+    avatar: "https://randomuser.me/api/portraits/women/33.jpg",
+    bgColor: "bg-vino-600",
+    fontColor: "text-white"
+  },
+  {
+    id: 6,
+    name: "Robert Garcia",
+    quote: "Technical excellence and great communication. We've found our long-term development partner.",
+    avatar: "https://randomuser.me/api/portraits/men/22.jpg",
+    bgColor: "bg-red-200",
+    fontColor: "text-black"
+  }
+];
+---
+
+<div class="container mx-auto px-4 py-16">
+  <h2 class="text-4xl font-bold text-black text-left">¿Que dicen Nuestros Clientes?</h2>
+  <hr class="w-16 h-1 bg-vino-600 border-0 mt-2 mb-12">
+  
+  <div class="relative max-w-6xl mx-auto">
+    <!-- Testimonial Slides -->
+    <div class="carousel-container overflow-hidden">
+      <div id="carousel-track" class="carousel-track flex transition-transform duration-500 ease-in-out gap-4">
+        {testimonials.map((testimonial) => (
+          <div class="carousel-slide min-w-[calc(33.333%-1rem)] px-2" data-id={testimonial.id}>
+            <div class={`${testimonial.bgColor} p-6 rounded-lg shadow-md h-full`}>
+              <div class="flex flex-col items-center justify-center mb-4">
+                <img 
+                  src={testimonial.avatar} 
+                  alt={testimonial.name} 
+                  width="56"
+                  height="56"
+                  class="w-14 h-14 rounded-full object-cover mb-3"
+                  loading="lazy"
+                />
+                <div class="text-center">
+                  <h4 class={`${testimonial.fontColor} text-lg font-semibold`}>{testimonial.name}</h4>
+                </div>
+              </div>
+              <p class={`${testimonial.fontColor} text-sm font-normal text-center`}>{testimonial.quote}</p>
+              <div class="flex mt-3">
+                
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Navigation Arrows -->
+    <button 
+      id="carousel-prev"
+      class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -ml-8 bg-white p-3 rounded-full shadow-md hover:bg-gray-200 focus:outline-none"
+      aria-label="Previous testimonials"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-vino-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button 
+      id="carousel-next"
+      class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 -mr-8 bg-white p-3 rounded-full shadow-md hover:bg-gray-200 focus:outline-none"
+      aria-label="Next testimonials"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-vino-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+    
+    <!-- Indicators -->
+    <div class="flex justify-center mt-8 space-x-2">
+      {Array.from({ length: Math.ceil(testimonials.length / 3) }).map((_, index) => (
+        <button 
+          class="carousel-indicator w-3 h-3 rounded-full bg-gray-300 focus:outline-none"
+          data-index={index}
+          aria-label={`Go to testimonials group ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    
+    const SLIDES_TO_SHOW = 3;
+    let currentGroup = 0;
+    const totalGroups = Math.ceil(slides.length / SLIDES_TO_SHOW);
+    let autoRotateInterval;
+    
+    function updateCarousel() {
+      const slideWidth = slides[0].offsetWidth + 16; // width + gap
+      track.style.transform = `translateX(-${currentGroup * SLIDES_TO_SHOW * slideWidth}px)`;
+      
+      // Update indicators
+      indicators.forEach((indicator, index) => {
+        if (index === currentGroup) {
+          indicator.classList.remove('bg-gray-300');
+          indicator.classList.add('bg-blue-500');
+        } else {
+          indicator.classList.remove('bg-blue-500');
+          indicator.classList.add('bg-gray-300');
+        }
+      });
+    }
+    
+    function goNext() {
+      currentGroup = (currentGroup + 1) % totalGroups;
+      updateCarousel();
+    }
+    
+    function goPrev() {
+      currentGroup = (currentGroup - 1 + totalGroups) % totalGroups;
+      updateCarousel();
+    }
+    
+    function goTo(groupIndex) {
+      currentGroup = groupIndex;
+      updateCarousel();
+    }
+    
+    // Event listeners
+    nextBtn.addEventListener('click', goNext);
+    prevBtn.addEventListener('click', goPrev);
+    
+    indicators.forEach(indicator => {
+      indicator.addEventListener('click', () => {
+        const index = parseInt(indicator.getAttribute('data-index'));
+        goTo(index);
+      });
+    });
+    
+    // Auto-rotate
+    function startAutoRotate() {
+      autoRotateInterval = setInterval(goNext, 5000);
+    }
+    
+    function stopAutoRotate() {
+      clearInterval(autoRotateInterval);
+    }
+    
+    startAutoRotate()
+
+    // Pause on hover
+    const container = document.querySelector('.carousel-container');
+    if (container) {
+      container.addEventListener('mouseenter', stopAutoRotate);
+      container.addEventListener('mouseleave', startAutoRotate);
+    }
+    
+    // Initialize
+    updateCarousel();
+
+    // Responsive adjustments
+    function handleResize() {
+      updateCarousel();
+    }
+    
+    window.addEventListener('resize', handleResize);
+  });
+</script>
