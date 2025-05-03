@@ -53,7 +53,7 @@ const testimonials = [
 ];
 ---
 
-<div class="container mx-auto px-4 py-16">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
   <h2 class="text-4xl font-bold text-black text-left">¿Que dicen Nuestros Clientes?</h2>
   <hr class="w-16 h-1 bg-vino-600 border-0 mt-2 mb-12">
   
@@ -62,7 +62,7 @@ const testimonials = [
     <div class="carousel-container overflow-hidden">
       <div id="carousel-track" class="carousel-track flex transition-transform duration-500 ease-in-out gap-4">
         {testimonials.map((testimonial) => (
-          <div class="carousel-slide min-w-[calc(33.333%-1rem)] px-2" data-id={testimonial.id}>
+          <div class="carousel-slide min-w-full sm:min-w-[calc(33.333%-1rem)] px-2" data-id={testimonial.id}>
             <div class={`${testimonial.bgColor} p-6 rounded-lg shadow-md h-full`}>
               <div class="flex flex-col items-center justify-center mb-4">
                 <img 
@@ -90,7 +90,7 @@ const testimonials = [
     <!-- Navigation Arrows -->
     <button 
       id="carousel-prev"
-      class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -ml-20 bg-white p-3 rounded-full shadow-md hover:bg-gray-200 focus:outline-none"
+      class="hidden sm:block carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -ml-20 bg-white p-3 rounded-full shadow-md hover:bg-gray-200 focus:outline-none"
       aria-label="Previous testimonials"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-vino-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -99,7 +99,7 @@ const testimonials = [
     </button>
     <button 
       id="carousel-next"
-      class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 -mr-10 bg-white p-3 rounded-full shadow-md hover:bg-gray-200 focus:outline-none"
+      class="hidden sm:block carousel-next absolute right-0 top-1/2 -translate-y-1/2 -mr-10 bg-white p-3 rounded-full shadow-md hover:bg-gray-200 focus:outline-none"
       aria-label="Next testimonials"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-vino-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
