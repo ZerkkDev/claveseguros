@@ -1,7 +1,6 @@
 ---
-
+// src/components/BranchSection.astro
 ---
-
 <section class="relative py-16 bg-cover bg-center" id="hability-branchs">
   <!-- Overlay -->
   <div class="absolute inset-0 bg-vino-600/80"></div>
@@ -14,31 +13,31 @@
 
     <div class="grid md:grid-cols-2 gap-8 text-lg font-normal">
       <ul class="space-y-4">
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/fire.svg" class="w-5 h-auto" alt=""> Incendio</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/theft.svg" class="w-5 h-auto" alt=""> Robo</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/thunder.svg" class="w-5 h-auto" alt=""> Equipo Electrónico</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/car.svg" class="w-5 h-auto" alt=""> Vehículos</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/bus.svg" class="w-5 h-auto" alt=""> Transporte</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/coins-bag.svg" class="w-5 h-auto" alt=""> Lucro Cesante</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/people.svg" class="w-5 h-auto" alt=""> Responsabilidad Civil</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/machine-broker.svg" class="w-5 h-auto" alt=""> Rotura de Maquinaria</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/wash-machine.svg" class="w-5 h-auto" alt=""> Equipo & Maquinaria</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/warning.svg" class="w-5 h-auto" alt=""> Todo Riesgo Montaje</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/broke-house.svg" class="w-5 h-auto" alt=""> Todo Riesgo Construcción</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Incendio', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/fire.svg" class="w-5 h-auto" alt="" > Incendio</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Robo', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/theft.svg" class="w-5 h-auto" alt=""> Robo</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Equipo Electrónico', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/thunder.svg" class="w-5 h-auto" alt=""> Equipo Electrónico</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Vehículos', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/car.svg" class="w-5 h-auto" alt=""> Vehículos</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Transporte', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/bus.svg" class="w-5 h-auto" alt=""> Transporte</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Lucro Cesante', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/coins-bag.svg" class="w-5 h-auto" alt=""> Lucro Cesante</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Responsabilidad Civil', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/people.svg" class="w-5 h-auto" alt=""> Responsabilidad Civil</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Rotura de Maquinaria', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/machine-broker.svg" class="w-5 h-auto" alt=""> Rotura de Maquinaria</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Equipo & Maquinaria', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/wash-machine.svg" class="w-5 h-auto" alt=""> Equipo & Maquinaria</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Todo Riesgo Montaje', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/warning.svg" class="w-5 h-auto" alt=""> Todo Riesgo Montaje</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Todo Riesgo Construcción', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/broke-house.svg" class="w-5 h-auto" alt=""> Todo Riesgo Construcción</li>
         <!-- Agrega más ítems... -->
       </ul>
       <ul class="space-y-4">
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/boat.svg" class="w-5 h-auto" alt=""> Casco Aéreo y Marítimo</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/person-badge.svg" class="w-5 h-auto" alt=""> Directores y Adminsitradores</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/pig-coins.svg" class="w-5 h-auto" alt=""> Fianzas</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/cyber.svg" class="w-5 h-auto" alt=""> Cyber</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/eco.svg" class="w-5 h-auto" alt=""> Agrícola</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/badge.svg" class="w-5 h-auto" alt=""> Fidelidad</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/heart.svg" class="w-5 h-auto" alt=""> Vida</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/doctor.svg" class="w-5 h-auto" alt=""> Asistencia Médica</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/crash.svg" class="w-5 h-auto" alt=""> Accidentes Personales</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/shield.svg" class="w-5 h-auto" alt=""> Desgravamen</li>
-        <li class="flex items-center gap-3"><img src="/src/assets/icons/plain.svg" class="w-5 h-auto" alt=""> Viajes</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Casco Aéreo y Marítimo', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/boat.svg" class="w-5 h-auto" alt=""> Casco Aéreo y Marítimo</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Directores y Adminsitradores', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/person-badge.svg" class="w-5 h-auto" alt=""> Directores y Adminsitradores</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Fianzas', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/pig-coins.svg" class="w-5 h-auto" alt=""> Fianzas</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Cyber', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/cyber.svg" class="w-5 h-auto" alt=""> Cyber</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Agrícola', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/eco.svg" class="w-5 h-auto" alt=""> Agrícola</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Fidelidad', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/badge.svg" class="w-5 h-auto" alt=""> Fidelidad</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Vida', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/heart.svg" class="w-5 h-auto" alt=""> Vida</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Asistencia Médica', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/doctor.svg" class="w-5 h-auto" alt=""> Asistencia Médica</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Accidentes Personales', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/crash.svg" class="w-5 h-auto" alt=""> Accidentes Personales</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Desgravamen', 'lLorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/shield.svg" class="w-5 h-auto" alt=""> Desgravamen</li>
+        <li class="flex items-center gap-3 cursor-pointer transition" onclick="showModal('Viajes', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!')"><img src="/icons/plain.svg" class="w-5 h-auto" alt=""> Viajes</li>
         <!-- ... -->
       </ul>
     </div>
@@ -46,7 +45,96 @@
   <div class="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/90 to-primary/80 mix-blend-multiply"></div>
   <style>
     section {
-      background-image: url('/src/assets/img/bg-branchs.jpg');
+      background-image: url('/img/bg-branchs.jpg');
     }
   </style>
+  <!-- Modal de Tailwind CSS -->
+  <div id="branchModal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <!-- Fondo oscuro -->
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+
+      <!-- Contenido del modal -->
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+              <div class="flex justify-between items-center">
+                <h3 id="modalTitle" class="text-2xl leading-6 font-bold text-vino-600"></h3>
+                <button onclick="hideModal()" class="text-gray-400 hover:text-gray-500">
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <hr class="my-3 border-vino-300">
+              <div class="mt-2">
+                <p id="modalContent" class="text-gray-700"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+          <button type="button" onclick="hideModal()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-vino-600 text-base font-medium text-white hover:bg-vino-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/90 to-primary/80 mix-blend-multiply"></div>
+  
+  <style>
+    section {
+      background-image: url('/img/bg-branchs.jpg');
+    }
+  </style>
+
+  <script is:inline>
+    // Datos de los ramos (puedes mover esto a un archivo JSON si prefieres)
+    const branchData = {
+      'Incendio': {
+        description: 'Protección contra daños materiales causados por incendio, explosión o caída de rayo. Cobertura amplia para propiedades comerciales e industriales.',
+        details: 'Incluye daños directos por fuego, humo y los gastos de extinción. Opcionalmente puede cubrir daños por explosión y caída de rayo.'
+      },
+      'Robo': {
+        description: 'Cobertura por pérdidas derivadas de robos con fuerza, incluyendo daños a la propiedad durante el evento.',
+        details: 'Protección para inventarios, equipos y bienes. Cubre el hurto con violencia o fuerza en las cosas.'
+      }
+      // Agrega todos los demás ramos aquí...
+    };
+
+    // Mostrar modal con información
+    function showModal(title, description) {
+      const modal = document.getElementById('branchModal');
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalContent').textContent = description;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Ocultar modal
+    function hideModal() {
+      const modal = document.getElementById('branchModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Cerrar modal al hacer clic fuera del contenido
+    document.getElementById('branchModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        hideModal();
+      }
+    });
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        hideModal();
+      }
+    });
+  </script>
 </section>

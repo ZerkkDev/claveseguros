@@ -1,0 +1,28 @@
+---
+// src/components/BranchSection.astro
+---
+
+<section class="relative py-16 bg-cover bg-center" id="hability-branchs">
+  <!-- Overlay de fondo -->
+  <div class="absolute inset-0 bg-vino-600/80"></div>
+
+  <!-- Contenido principal -->
+  <div class="relative max-w-6xl mx-auto px-6 text-white z-10">
+    <h2 class="text-4xl font-bold text-white text-left">Ramos Habilitados</h2>
+    <hr class="w-16 h-1 bg-white border-0 mt-2 mb-12">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, atque quis vel, suscipit natus molestiae eveniet animi laborum doloremque nesciunt provident. Ab fugit eum sint quo enim atque ullam magnam!
+    <div class="grid md:grid-cols-2 gap-8 text-lg font-normal">
+      <ul class="space-y-4">
+        <li class="flex items-center gap-3 cursor-pointer hover:text-yellow-200 transition" onclick="showModal('Incendio', 'Protección contra daños materiales causados por incendio, explosión o caída de rayo. Cobertura amplia para propiedades comerciales e industriales.')"><img src="/icons/fire.svg" class="w-5 h-auto" alt=""> Incendio</li>
+        <li class="flex items-center gap-3 cursor-pointer hover:text-yellow-200 transition" onclick="showModal('Robo', 'Cobertura por pérdidas derivadas de robos con fuerza, incluyendo daños a la propiedad durante el evento. Protección para inventarios, equipos y bienes.')"><img src="/icons/theft.svg" class="w-5 h-auto" alt=""> Robo</li>
+        <!-- Resto de los items... -->
+      </ul>
+      <ul class="space-y-4">
+        <li class="flex items-center gap-3 cursor-pointer hover:text-yellow-200 transition" onclick="showModal('Casco Aéreo y Marítimo', 'Protección para embarcaciones y aeronaves contra daños físicos y responsabilidad civil específica.')"><img src="/icons/boat.svg" class="w-5 h-auto" alt=""> Casco Aéreo y Marítimo</li>
+        <!-- Resto de los items... -->
+      </ul>
+    </div>
+  </div>
+
+  
+</section>
