@@ -114,21 +114,29 @@
             const telefono = data.phone || '';
             const email = data.email || '';
             const tipos = formData.getAll('insurance_type').join(', ') || '';
+
+            if (!email) {
+                alert('Por favor ingresa tu correo electrónico para continuar.');
+                return;
+            }
+     
+            const destinatario = 'info@claveseguros.com'; // Cambia esto por el correo real de la empresa
             
-
+             const asunto = 'Solicitud de cotización de seguro';
+            
             const mensaje = `Hola, deseo una cotización con los siguientes datos:
-Nombre: ${nombre}
-Teléfono: ${telefono}
-Email: ${email}
-Seguro(s) de interés: ${tipos}`;
+            Nombre: ${nombre}
+            Teléfono: ${telefono}
+            Email: ${email}
+            Seguro(s) de interés: ${tipos}`;
    
+            const mailtoURL = `mailto:${destinatario}?cc=${email}&subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
 
-            const mensajeEncoded = encodeURIComponent(mensaje);
-            const numero = '593998047542';
-            const whatsappURL = `https://wa.me/${numero}?text=${mensajeEncoded}`;
-
-            window.open(whatsappURL, '_blank');
-            e.target.reset();
+            window.location.href = mailtoURL;
+            
+            setTimeout(() => {
+                e.target.reset();
+            }, 500);
         } catch (error) {
             console.error('Error:', error);
             alert('Ocurrió un error al enviar el formulario. Por favor intenta nuevamente.');
