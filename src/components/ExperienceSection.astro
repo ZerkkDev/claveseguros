@@ -1,7 +1,7 @@
 ---
 // src/components/ExperienceSection.astro
 ---
-<section class="relative py-40 bg-cover bg-left bg-no-repeat">
+<section class="relative py-40  2xl:py-64  3xl:py-72 bg-cover bg-no-repeat">
     <!-- Fondo con overlay oscuro para mejor legibilidad -->
     <div class="absolute inset-0  z-0"></div>
     
@@ -30,6 +30,9 @@
     <style>
       section {
         background-image: url('/img/slider-bg.png'); /* Ruta a tu imagen */
-      }
+        background-position: left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
     </style>
   </section>
